@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="/js/leaflet/leaflet.css" />
+    <script src="/js/leaflet/leaflet.js"></script>
+    <!-- jQuery -->
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <!-- Leaflet Routing Machine -->
+    <script src="/js/leaflet-routing-machine-3.2.12/dist/leaflet-routing-machine.js"></script>
+    <link
+      rel="stylesheet"
+      href="/js/leaflet-routing-machine-3.2.12/dist/leaflet-routing-machine.css"
+    />
+
+    <!-- Bootstrap-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/js/bootstrap 4.1.3/bootstrap.min.js"></script>
+
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <!-- Heatmap -->
+    <script src="js/heatmap.js"></script>
+    <script src="js/leaflet-heatmap.js"></script>
+
+    <script src="/assets/source_locations.js"></script>
+    <script src="/assets/sample_data.js"></script>
+    <script src="/js/grayScaleOSM.js"></script>
+    <title>Prodapt - Home</title>
+  </head>
+
+  <body>
+    <div class="d-flex" id="wrapper">
+      <!-- Sidebar-->
+      <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading">Prodapt</div>
+        <div class="list-group list-group-flush">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <img src="assets/img/map.png" width="20px" />&nbsp&nbsp Map
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" onclick="heatMap()">Heat Map</a>
+              <a class="dropdown-item" onclick="plotNearestLocations()"
+                >Route Map</a
+              >
+            </div>
+          </div>
+          <button type="button" class="btnlogout" onclick="logout()">
+            <img src="assets/img/logout.png" width="20px" />&nbsp&nbspLogout
+          </button>
+        </div>
+      </div>
+
+      <!-- Page Content-->
+      <div id="page-content-wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <ul class="navbar-nav mr-auto">
+            <li>
+              <select
+                id="locations_dropdown"
+                class="form-select"
+                name="locations_dropdown"
+              ></select>
+            </li>
+            <li style="padding-left: 35px">
+              <select
+                id="partnumberList"
+                class="form-select"
+                name="partnumberList"
+                onchange="fillVendors()"
+              >
+                <img src="assets/img/logout.png" width="20px" />
+              </select>
+            </li>
+            <li style="padding-left: 35px">
+              <select
+                id="vendors_dropdown"
+                class="form-select"
+                name="vendors_dropdown"
+              ></select>
+            </li>
+          </ul>
+          <button
+            class="btn btn-outline-success my-2 my-sm-0"
+            type="submit"
+            id="but_search"
+            onclick="getParams()"
+          >
+            <img src="assets/img/search.png" width="25px" /></button
+          >&nbsp;&nbsp;&nbsp;
+          <button
+            class="btn btn-outline-success my-2 my-sm-0"
+            type="submit"
+            id="but_reset"
+            onclick="resetAll()"
+          >
+            <img src="assets/img/reset.png" width="25px" />
+          </button>
+        </nav>
+        <div>
+          <div>
+            <!-- Render Leaflet Map -->
+            <div
+              id="map"
+              style="height: 100vh; width: auto; position: relative"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- App V2 -->
+    <script src="/app_v3.js"></script>
+  </body>
+</html>

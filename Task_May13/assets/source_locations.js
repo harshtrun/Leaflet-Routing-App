@@ -1,0 +1,22 @@
+const source_locations = 
+[
+{"location":"LTRMARYS","geocoded_long":"-92.3955284392","geocoded_lat":"34.758554522"}
+,{"location":"LUCSIAXP","geocoded_long":"-93.4616035231","geocoded_lat":"41.0295031391"}
+,{"location":"MDSNWI14","geocoded_long":"-89.3107591","geocoded_lat":"43.1033953"}
+,{"location":"MDSNWIAI","geocoded_long":"-89.298152","geocoded_lat":"43.143231"}
+,{"location":"OMAHNEFQ","geocoded_long":"-96.0675443","geocoded_lat":"41.210743"}
+,{"location":"OMAHNEKZ","geocoded_long":"-96.0256187","geocoded_lat":"41.248699"}
+,{"location":"PRRYGAU0203","geocoded_long":"-83.7079687","geocoded_lat":"32.4775376"}
+,{"location":"PYVLMNBR","geocoded_long":"-94.7335147","geocoded_lat":"45.3441529"}
+,{"location":"QNTWMDQN","geocoded_long":"-76.1672070","geocoded_lat":"38.9776070"}
+,{"location":"WLDRTXXA","geocoded_long":"-102.2013490814","geocoded_lat":"35.2107533553"}
+,{"location":"SMRTKYDN","geocoded_long":"-84.626745","geocoded_lat":"37.0490139"}
+,{"location":"SMRTKYYA","geocoded_long":"-84.6073462","geocoded_lat":"37.0996596"}
+,{"location":"SNANTXSL","geocoded_long":"-98.9069142","geocoded_lat":"30.2314998"}
+,{"location":"ALAMGAAH","geocoded_long":"-82.895127479","geocoded_lat":"32.1498892291"}
+,{"location":"ALBMNCAH","geocoded_long":"-80.2360049128","geocoded_lat":"35.3402901583"}
+,{"location":"ANHCTXU0200","geocoded_long":"-94.56488220300","geocoded_lat":"29.78958906960"}
+,{"location":"CRSTAR27","geocoded_long":"-91.9417550","geocoded_lat":"33.1381381"}
+,{"location":"CRWLCT00","geocoded_long":"-72.6788182","geocoded_lat":"41.6010445"}
+,{"location":"BRKRFL03","geocoded_long":"-82.3301800","geocoded_lat":"29.9246970"}
+]

@@ -1,0 +1,50 @@
+
+.formBlock {
+    max-width: 300px;
+    border: 1px solid #ddd;
+    position: absolute;
+    top: 35%;
+    right: 5%;
+    padding: 10px;
+    z-index: 999;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.65);
+    border-radius: 5px;
+    width: 100%;
+    background-color: bisque;
+}
+
+.formBlock2 {
+    max-width: 300px;
+    background-color:cadetblue;
+    border: 1px solid rgb(1, 2, 26);
+    position: absolute;
+    top:35%;
+    right: 5%;
+    padding: 10px;
+    z-index: 999;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.65);
+    border-radius: 5px;
+    width: 100%;
+    
+}
+
+
+
+
+.input {
+    padding: 10px;
+    width: 280px;
+    border: 1px solid #ddd;
+    font-size: 15px;
+    border-radius: 3px;
+    background-color: rgb(179, 203, 247);
+}
+
+
+
+
+#form {
+    padding: 1px;
+    margin: 1px;
+    
+}

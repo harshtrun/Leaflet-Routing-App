@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Leaflet Heatmap Layer Plugin</title>
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      font-family: sans-serif;
+    }
+
+    body * {
+      font-weight: 200;
+    }
+
+    h1 {
+      position: absolute;
+      background: white;
+      padding: 10px;
+    }
+
+    #map {
+      height: 100%;
+    }
+
+    .leaflet-container {
+      background: rgba(0, 0, 0, .8) !important;
+    }
+
+    h1 {
+      position: absolute;
+      background: black;
+      color: white;
+      padding: 10px;
+      font-weight: 200;
+      z-index: 10000;
+    }
+
+    #all-examples-info {
+      position: absolute;
+      background: white;
+      font-size: 16px;
+      padding: 20px;
+      top: 100px;
+      width: 350px;
+      line-height: 150%;
+      border: 1px solid rgba(0, 0, 0, .2);
+    }
+  </style>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.7/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.7/leaflet.js"></script>
+  <script src="heatmap.js"></script>
+  <script src="leaflet-heatmap.js"></script>
+</head>
+
+<body>
+  
+
+  <div id="map"></div>
+
+  
+  <script>
+    window.onload = function () {
+
+      var testData = {
+        max: 8,
+        data:[{
+            lat: '33.7650858',
+            lng: '-84.3840995',
+            count: 4
+          },
+          {
+            lat: '33.7650858',
+            lng: '-84.3840995',
+            count: 4
+          },
+          {
+            lat: '35.412657',
+            lng: '-80.579165',
+            count: 3
+          },
+          {
+            lat: '36.173667',
+            lng: '-86.7835769',
+            count: 1
+          },
+          {
+            lat: '28.5471009',
+            lng: '-81.3793808',
+            count: 1
+          },
+          {
+            lat: '39.959855',
+            lng: '-75.16193',
+            count: 2
+          },
+          {
+            lat: '33.090744',
+            lng: '-83.228528',
+            count: 1
+          },
+          {
+            lat: '26.124426',
+            lng: '-80.143322',
+            count: 2
+          },
+          {
+            lat: '38.242258',
+            lng: '-85.737323',
+            count: 2
+          },
+          {
+            lat: '39.432814',
+            lng: '-80.20458',
+            count: 1
+          },
+          {
+            lat: '41.075771',
+            lng: '-81.523926',
+            count: 2
+          },
+          {
+            lat: '40.1772782',
+            lng: '-76.17546',
+            count: 2
+          },
+          {
+            lat: '34.5144957361',
+            lng: '-83.528192993',
+            count: 1
+          },
+          {
+            lat: '39.959855',
+            lng: '-75.16193',
+            count: 2
+          },
+          {
+            lat: '26.124426',
+            lng: '-80.143322',
+            count: 2
+          },
+          {
+            lat: '41.771633',
+            lng: '-72.611077',
+            count: 2
+          },
+          {
+            lat: '40.7367957',
+            lng: '-74.1711832',
+            count: 1
+          },
+          {
+            lat: '31.7150349',
+            lng: '-83.2538553',
+            count: 1
+          },
+          {
+            lat: '40.4502462839',
+            lng: '-80.005488855',
+            count: 2
+          },
+          {
+            lat: '41.1114746',
+            lng: '-85.1070251',
+            count: 2
+          },
+          {
+            lat: '38.6845802',
+            lng: '-90.3893065',
+            count: 2
+          },
+          {
+            lat: '35.412657',
+            lng: '-80.579165',
+            count: 3
+          },
+          {
+            lat: '29.9947274',
+            lng: '-90.1526647',
+            count: 2
+          },
+          {
+            lat: '35.4815',
+            lng: '-79.1787',
+            count: 1
+          },
+          {
+            lat: '40.1772782',
+            lng: '-76.17546',
+            count: 2
+          },
+          {
+            lat: '38.9641852354',
+            lng: '-77.3721928287',
+            count: 2
+          },
+          {
+            lat: '38.9641852354',
+            lng: '-77.3721928287',
+            count: 2
+          },
+          {
+            lat: '39.18283',
+            lng: '-76.800259',
+            count: 1
+          },
+          {
+            lat: '37.5838850',
+            lng: '-77.4755110',
+            count: 2
+          },
+          {
+            lat: '33.7650858',
+            lng: '-84.3840995',
+            count: 4
+          },
+          {
+            lat: '26.1575987',
+            lng: '-80.1431317',
+            count: 1
+          },
+          {
+            lat: '29.9422120656',
+            lng: '-95.4172377154',
+            count: 1
+          },
+          {
+            lat: '33.5253126',
+            lng: '-86.8094757',
+            count: 2
+          },
+          {
+            lat: '37.3423288548',
+            lng: '-85.3441428749',
+            count: 1
+          },
+          {
+            lat: '41.1114746',
+            lng: '-85.1070251',
+            count: 2
+          },
+          {
+            lat: '40.4502462839',
+            lng: '-80.005488855',
+            count: 2
+          },
+          {
+            lat: '40.816096',
+            lng: '-79.486458',
+            count: 2
+          },
+          {
+            lat: '38.045981',
+            lng: '-84.494572',
+            count: 1
+          },
+          {
+            lat: '30.2940',
+            lng: '-82.9822',
+            count: 2
+          },
+          {
+            lat: '40.2077919968',
+            lng: '-75.0771562987',
+            count: 1
+          },
+          {
+            lat: '40.816096',
+            lng: '-79.486458',
+            count: 2
+          },
+          {
+            lat: '33.7650858',
+            lng: '-84.3840995',
+            count: 4
+          },
+          {
+            lat: '34.748745',
+            lng: '-92.275105',
+            count: 1
+          },
+          {
+            lat: '25.9456639',
+            lng: '-80.1867176',
+            count: 1
+          },
+          {
+            lat: '41.771633',
+            lng: '-72.611077',
+            count: 2
+          },
+          {
+            lat: '38.6845802',
+            lng: '-90.3893065',
+            count: 2
+          },
+          {
+            lat: '29.9947274',
+            lng: '-90.1526647',
+            count: 2
+          },
+          {
+            lat: '42.879123644',
+            lng: '-85.5662987756',
+            count: 1
+          },
+          {
+            lat: '41.075771',
+            lng: '-81.523926',
+            count: 2
+          },
+          {
+            lat: '42.46176',
+            lng: '-83.421049',
+            count: 1
+          },
+          {
+            lat: '33.5253126',
+            lng: '-86.8094757',
+            count: 2
+          },
+          {
+            lat: '33.5915100042',
+            lng: '-99.2619875902',
+            count: 1
+          },
+          {
+            lat: '41.319864',
+            lng: '-93.0987158',
+            count: 1
+          },
+          {
+            lat: '41.824178',
+            lng: '-90.539246',
+            count: 1
+          },
+          {
+            lat: '41.0324079',
+            lng: '-93.7668319',
+            count: 1
+          },
+          {
+            lat: '40.811711',
+            lng: '-96.700175',
+            count: 1
+          },
+          {
+            lat: '31.9419806',
+            lng: '-94.2426165',
+            count: 1
+          },
+          {
+            lat: '39.9379712222',
+            lng: '-86.0270263374',
+            count: 1
+          },
+          {
+            lat: '30.5103918',
+            lng: '-97.6839813',
+            count: 1
+          },
+          {
+            lat: '37.5838850',
+            lng: '-77.4755110',
+            count: 2
+          },
+          {
+            lat: '39.3080931',
+            lng: '-91.4865863',
+            count: 1
+          },
+          {
+            lat: '35.1673739',
+            lng: '-89.7498220',
+            count: 1
+          },
+          {
+            lat: '33.4248',
+            lng: '-94.0441',
+            count: 2
+          },
+          {
+            lat: '42.484868',
+            lng: '-91.457867',
+            count: 2
+          },
+          {
+            lat: '30.2940',
+            lng: '-82.9822',
+            count: 2
+          },
+          {
+            lat: '34.468075',
+            lng: '-96.0521054',
+            count: 1
+          },
+          {
+            lat: '29.819798588',
+            lng: '-94.3819099659',
+            count: 1
+          },
+          {
+            lat: '40.059527',
+            lng: '-81.220257',
+            count: 1
+          },
+          {
+            lat: '45.3356285',
+            lng: '-93.7420225',
+            count: 1
+          },
+          {
+            lat: '45.264009',
+            lng: '-94.124852',
+            count: 1
+          },
+          {
+            lat: '41.300373',
+            lng: '-91.689683',
+            count: 1
+          },
+          {
+            lat: '41.74513',
+            lng: '-92.725776',
+            count: 1
+          },
+          {
+            lat: '36.1996836',
+            lng: '-101.1921278',
+            count: 1
+          },
+          {
+            lat: '47.4950345',
+            lng: '-122.2905918',
+            count: 1
+          },
+          {
+            lat: '40.968746',
+            lng: '-91.564173',
+            count: 1
+          },
+          {
+            lat: '40.6907907',
+            lng: '-89.5912205',
+            count: 1
+          },
+          {
+            lat: '43.322254',
+            lng: '-76.416106',
+            count: 1
+          },
+          {
+            lat: '35.118484',
+            lng: '-80.721292',
+            count: 1
+          },
+          {
+            lat: '41.7456353048',
+            lng: '-92.7033948311',
+            count: 1
+          },
+          {
+            lat: '38.423542',
+            lng: '-82.020814',
+            count: 1
+          },
+          {
+            lat: '35.2182204',
+            lng: '-80.8376437',
+            count: 1
+          },
+          {
+            lat: '33.1299034',
+            lng: '-107.2544931',
+            count: 1
+          },
+          {
+            lat: '39.9145216',
+            lng: '-93.9602449',
+            count: 1
+          },
+          {
+            lat: '31.2407022',
+            lng: '-96.2558186',
+            count: 1
+          },
+          {
+            lat: '32.3670735298',
+            lng: '-81.3091867908',
+            count: 1
+          },
+          {
+            lat: '36.165864',
+            lng: '-80.33154',
+            count: 1
+          },
+          {
+            lat: '33.4248',
+            lng: '-94.0441',
+            count: 2
+          },
+          {
+            lat: '43.5440325',
+            lng: '-96.7680233',
+            count: 1
+          },
+          {
+            lat: '39.7961106',
+            lng: '-89.6493861',
+            count: 1
+          },
+          {
+            lat: '34.538051',
+            lng: '-101.766099',
+            count: 1
+          },
+          {
+            lat: '39.7628420',
+            lng: '-104.9820520',
+            count: 1
+          },
+          {
+            lat: '34.8328696',
+            lng: '-84.0072907',
+            count: 1
+          },
+          {
+            lat: '42.020933',
+            lng: '-93.451402',
+            count: 1
+          },
+          {
+            lat: '36.0621723',
+            lng: '-95.8686082',
+            count: 1
+          },
+          {
+            lat: '42.484868',
+            lng: '-91.457867',
+            count: 2
+          },
+          {
+            lat: '30.0452841',
+            lng: '-99.1401469',
+            count: 1
+          },
+          {
+            lat: '35.412657',
+            lng: '-80.579165',
+            count: 3
+          },
+          {
+            lat: '37.0956175744',
+            lng: '-84.6052665042',
+            count: 1
+          },
+          {
+            lat: '38.242258',
+            lng: '-85.737323',
+            count: 2
+          },
+          {
+            lat: '34.7222533996',
+            lng: '-95.9033985781',
+            count: 1
+          }
+        ]
+      }
+
+
+
+      var baseLayer = L.tileLayer(
+        'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+          maxZoom: 18
+        }
+      );
+
+      var cfg = {
+        // radius should be small ONLY if scaleRadius is true (or small radius is intended)
+        "radius": 2,
+        "maxOpacity": .8,
+        // scales the radius based on map zoom
+        "scaleRadius": true,
+        // if set to false the heatmap uses the global maximum for colorization
+        // if activated: uses the data maximum within the current map boundaries 
+        //   (there will always be a red spot with useLocalExtremas true)
+        "useLocalExtrema": true,
+        // which field name in your data represents the latitude - default "lat"
+        latField: 'lat',
+        // which field name in your data represents the longitude - default "lng"
+        lngField: 'lng',
+        // which field name in your data represents the data value - default "value"
+        valueField: 'count'
+      };
+
+
+      var heatmapLayer = new HeatmapOverlay(cfg);
+
+      var map = new L.Map('map', {
+        center: new L.LatLng(25.6586, -80.3568),
+        zoom: 4,
+        layers: [baseLayer, heatmapLayer]
+      });
+
+      heatmapLayer.setData(testData);
+
+      // make accessible for debugging
+      layer = heatmapLayer;
+    };
+  </script>
+</body>
+
+</html>
